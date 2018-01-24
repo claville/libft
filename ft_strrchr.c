@@ -6,7 +6,7 @@
 /*   By: claville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 12:18:41 by claville          #+#    #+#             */
-/*   Updated: 2017/11/26 16:22:49 by claville         ###   ########.fr       */
+/*   Updated: 2018/01/23 15:43:44 by claville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *str, int c)
 {
 	int i;
 
-	i = ft_strlen(str);
+	i = ft_strlen((char*)str);
 	while (i != 0 && str[i] != (char)c)
 		i--;
 	if (str[i] == (char)c)

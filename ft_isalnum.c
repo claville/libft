@@ -6,7 +6,7 @@
 /*   By: claville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 18:04:23 by claville          #+#    #+#             */
-/*   Updated: 2017/11/26 16:14:38 by claville         ###   ########.fr       */
+/*   Updated: 2018/01/20 13:07:48 by claville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ int		ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

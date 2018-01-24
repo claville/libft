@@ -6,7 +6,7 @@
 /*   By: claville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 18:08:18 by claville          #+#    #+#             */
-/*   Updated: 2017/11/26 16:28:45 by claville         ###   ########.fr       */
+/*   Updated: 2018/01/20 13:07:16 by claville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int		ft_isalpha(int c)
 {
-	if (ft_tolower(c) || ft_toupper(c))
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

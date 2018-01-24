@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 11:38:23 by claville          #+#    #+#             */
-/*   Updated: 2018/01/23 12:42:42 by claville         ###   ########.fr       */
+/*   Created: 2018/01/18 13:39:01 by claville          #+#    #+#             */
+/*   Updated: 2018/01/21 12:53:39 by claville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *str;
+	char			*cpy;
+	char			*str;
+	unsigned int	i;
+	unsigned int	j;
 
-	if ((str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + 1))) == 0)
+	i = 0;
+	j = 0;
+	str = (char*)s;
+	while (str != NULL && str[i])
+		i++;
+	if ((cpy = (char*)malloc(sizeof(char) * (i + 1))) == NULL)
 		return (NULL);
-	ft_strcpy(str, s1);
-	return (str);
+	while (str != NULL && *str)
+		*(cpy++) = f(j++, *(str++));
+	*cpy = '\0';
+	return (cpy - i);
 }

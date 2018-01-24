@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: claville <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 11:38:23 by claville          #+#    #+#             */
-/*   Updated: 2018/01/23 12:42:42 by claville         ###   ########.fr       */
+/*   Created: 2018/01/19 11:01:04 by claville          #+#    #+#             */
+/*   Updated: 2018/01/21 14:28:16 by claville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strtrim(char const *s)
 {
-	char *str;
+	size_t min;
+	size_t max;
+	size_t len;
 
-	if ((str = (char*)malloc(sizeof(char) * (ft_strlen(s1) + 1))) == 0)
+	if (!s)
 		return (NULL);
-	ft_strcpy(str, s1);
-	return (str);
+	min = 0;
+	while (s[min] != '\0'
+			&& (s[min] == ' ' || s[min] == '\n' || s[min] == '\t'))
+		min++;
+	max = ft_strlen(s);
+	while (min < max &&
+			(s[max - 1] == ' ' || s[max - 1] == '\n' || s[max - 1] == '\t'))
+		max--;
+	if (min == max)
+		return (ft_strnew(1));
+	len = max - min;
+	return (ft_strsub(s, min, len));
 }
